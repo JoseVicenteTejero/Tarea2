@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> JAVASCRIPT EJERCICIOS 18 al 27 Justo Garrido</title>
+    </head>
+    <body>
+    
+        <h1>EJERCICIO 18</h1>
+        <hr>
+        <p>Escriba un programa JavaScript para verificar si una cadena dada representa una oración correcta o no. Una cadena se considera una oración 
+            correcta si comienza con una letra mayúscula y termina con un punto (.).		R:114</p>
+        <p id="enun18"></p>
+        <br>
+        <p>RESULTADO PRUEBAS</p>
+        <p id="res18"></p>
+        <script>
+            // EJERCICIO 18 Justo Garrido
+            function ej18_cadenaCorrecta(cad) {
+                return cad && cad.endsWith(".") && cad.charAt(0) === cad.charAt(0).toUpperCase();
+                // ojo, para algunos idiomas podría ser necesario usar toLocaleUpperCase() en lugar de toUpperCase
+            }
+            var arrayCadenas = ["Esta es una cadena correcta.", "esta no es una cadena correcta.", "Esta no es una cadena correcta", "esta no es una cadena correcta", "Ñam ñam, esta es una cadena correcta.", "Ávila es una ciudad y esta es una cadena correcta.", "ándale, esta no es una cadena correcta.","", null, undefined];
+            document.getElementById("enun18").innerHTML = "Matriz de cadenas: "+ arrayCadenas.toString();
+            arrayCadenas.forEach((x)=>document.getElementById("res18").innerHTML += ej18_cadenaCorrecta(x) ? "Correcta: " + x + "<br>" : "Incorrecta: " + x + "<br>") ; 
+        </script>
+    
+    <!---
+    019	```	Escriba un programa JavaScript para verificar si una matriz es una matriz diagonal o no. En álgebra lineal, una matriz diagonal es una matriz en la que las entradas fuera de la diagonal principal son todas cero (la diagonal de la parte superior izquierda a la inferior derecha). Ejemplo: [1, 0, 0], [0, 2, 0], [0, 0, 3]]) = verdadero [1, 0, 0], [0, 2, 3], [0, 0, 3]]) = falso		R:115
+    020	```	Escriba un programa JavaScript para encontrar todas las opciones posibles para reemplazar el hash en una cadena (consta de dígitos y un hash (#)) con un dígito para producir un número entero divisible por 3. Para una cadena "2 * 0", la salida debe ser: ["210", "240", "270"]		R:116
+    021	```	Escriba un programa JavaScript para verificar si una matriz dada es una matriz de identidad. Nota: En álgebra lineal, la matriz identidad, o algunas veces ambiguamente llamada matriz unitaria, de tamaño n es n? n matriz cuadrada con unos en la diagonal principal y ceros en el resto. [[1, 0, 0], [0, 1, 0], [0, 0, 1]] -> verdadero [[1, 0, 0], [0, 1, 0], [1, 0, 1]] -> falso		R:117
+    022	```	Escriba un programa JavaScript para verificar si un número dado está en un rango determinado.		R:118
+    023	```	Escriba un programa JavaScript para verificar si un entero dado tiene una secuencia de dígitos creciente.		R:119
+    024	```	Escriba un programa JavaScript para obtener la URL del sitio web (página de carga).		R:12
+    025	```	Escriba un programa JavaScript para comprobar si un punto se encuentra estrictamente dentro de un círculo dado. Entrada: Centro del círculo (x, y) Radio del círculo: r Apunta dentro de un círculo (a, b)		R:120
+    026	```	Escriba un programa JavaScript para verificar si una matriz dada es triangular inferior o no. Nota: Una matriz cuadrada se llama triangular inferior si todas las entradas sobre la diagonal principal son cero.		R:121
+    027	```	Escriba un programa JavaScript para verificar si una matriz dada de enteros representa una secuencia estrictamente creciente o estrictamente decreciente.		R:122
+    -->
+    </body>
+</html>
