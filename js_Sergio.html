@@ -77,7 +77,29 @@
     <p id="res10"></p>
     <script>
         // EJERCICIO 10 Sergio de Vega
+        function ej10_paresdiv(cadena) {
+            //Recorremos la cadena varias veces, desde cada número hasta el final de la misma, hasta que lleguemos al último número.
+            var resultado = "";
+            var cont_pares = 0;
+            for (i=0; i < cadena.length-1; i++) {
+                var n = i+1;
+                for (n = i+1 ; n <= cadena.length; n++) {
+                    if ((cadena[i]%cadena[n] == 0) || (cadena[n]%cadena[i] == 0)) {
+                        resultado += "(" + cadena[i] + ", " + cadena[n] +") ";
+                        cont_pares ++;
+                        n++;
+                    }
+                }
+            }
+            return [cont_pares, resultado];
+        }
+        var arr = [[5, 2, 6], [2, 3, 10, 15], [10], [3, 8, 5, 23, 10, 7, 14]];
+        for (x = 1; x <= arr.length; x++) document.getElementById("enun10").innerHTML += "Matriz "+ x + ": " + arr[x-1] + "<br>";
+        for (x = 1; x <= arr.length; x++) {
+            var solucion = ej10_paresdiv(arr[x-1]);
 
+            document.getElementById("res10").innerHTML += "Los pares divisibles de la cadena " + x + " son " + solucion[0] + ": " + solucion[1] + "<br>";
+        }
     </script>
 
     <br>
@@ -150,7 +172,33 @@
     <p>RESULTADO</p>
     <p id="res13"></p>
     <script>
-    // EJERCICIO 13 Sergio de Vega
+        // EJERCICIO 13 Sergio de Vega
+        function ej13_convertir_C2F(tempC) {
+            return ((tempC*9)/5)+32;
+        }
+        function ej13_convertir_F2C(tempF) {
+            return ((tempF-32)/9)*5;
+        }
+
+        var array1 = [" 27.4 º C ", " 60 º C", " 45 º F ", " -5 º C ", " 4c"];
+
+        for (let i = 0; i < array1.length; i++) {
+            document.getElementById("enun13").innerHTML += "Temperatura " + (i+1) + ": " + array1[i] +"<br>";
+            dato = array1[i];
+            dato = dato.replace("º","");
+            dato = dato.replace("F","");
+            dato = dato.replace("C","");
+            if (array1[i].includes("F")) {
+                document.getElementById("res13").innerHTML += array1[i] + " = " + ej13_convertir_F2C(dato).toString() + " º C.<br>"        
+            } else {
+                if (array1[i].includes("C")) {
+                    document.getElementById("res13").innerHTML += array1[i] + " = " + ej13_convertir_C2F(dato).toString() + " º F.<br>"        
+                }
+                else {
+                    document.getElementById("res13").innerHTML += array1[i] + " no es una temperatura reconocida<br>";
+                }
+            }
+        }
 
     </script>
 
@@ -196,8 +244,25 @@
     <p>RESULTADO</p>
     <p id="res15"></p>
     <script>
-    // EJERCICIO 15 Sergio de Vega
+        // EJERCICIO 15 Sergio de Vega
+        var array1 = [[1, 2, 2], [12, 7, 12], [0, 0, 156]];
+        for (i = 0; i < array1.length; i++) document.getElementById("enun15").innerHTML += "Grupo " + (i+1) + ": " + array1[i] + "<br>";
 
+        for (i = 0; i < array1.length; i++) {
+            var distinto = 0;
+            if (array1[i][0] == array1[i][1]) {
+                distinto = 2;
+            } else {
+                if (array1[i][1] == array1[i][2]) {
+                    distinto = 0;
+                } else {
+                    if (array1[i][0] == array1[i][2]){
+                        distinto = 1;                
+                    }
+                }
+            }
+            document.getElementById("res15").innerHTML += "El número diferente del grupo " + (i+1) + " es : " + array1[i][distinto] + "<br>";
+        }
     </script>
 
     <br>
@@ -212,8 +277,16 @@
     <p>RESULTADO</p>
     <p id="res16"></p>
     <script>
-    // EJERCICIO 16 Sergio de Vega
+        // EJERCICIO 16 Sergio de Vega
+        function factorial (n) {
+        var total = 1; 
+        for (i=1; i<=n; i++) {
+            total = total * i; 
+        }
+        return total; 
+        }
 
+        alert(factorial(100));
     </script>
 
 
