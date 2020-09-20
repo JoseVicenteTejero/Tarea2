@@ -176,11 +176,11 @@
 <p>Escriba un programa JavaScript para invertir el orden de los bits en un entero dado. <br>
     56 -> 111000 después de retroceso 7 -> 111 234 -> 11101010 después de retroceso 87 -> 1010111</p>
 <form name="form1" action="" method="post" onSubmit="">
-      Decimal:<input type="text" name="dec"><br>
-      Binario:<input type="text" name="bin"><br>
-      Invertido:<input type="text" name="inv"><br>
+      Decimal:  <input type="text" name="dec"><br>
+      Binario:  <input type="text" name="bin"><br>
+      Invertido:<input type="text" name="inv37"><br>
       <input type="button" value="Convertir a binario" onClick="bin.value=dec2bin(dec.value);">
-      <input type="button" value="Invertir orden" onClick="inversion(bin.value);"> 
+      <input type="button" value="Invertir orden" onClick="inv32=inversion(bin.value);"> 
 </form>
  
 <!-- <button onclick="myFunction()">Try it</button> -->
@@ -195,13 +195,14 @@
         return (i<1)?"":dec2bin((i-(i%2))/2)+i%2; 
     }
     function inversion() {
-        var str_out, inv;
-        for (i = 0; i < bin.length; i++) {
-            str_out.substr(bin.length-1, 1) = str_in.substr(i, 1);
+        var str_out;
+        text32 = bin.value;
+        for (i = 0; i < text32.length; i++) {
+            str_out.substr(text32.length-1, 1) = text32.substr(i, 1);
         }
-        inv = str_out
+        inv32 = str_out;
     }       
-    document.getElementById("res32").innerHTML = str_out;   
+    document.getElementById("res32").innerHTML = inv32;   
 </script>
 </body>
 </html>
@@ -361,7 +362,7 @@
                 cont36 = cont36 + 1;
             }
         }
-        document.getElementById("res36").innerHTML = "El primer número primo mayor es: " + cont36;
+        document.getElementById("res36").innerHTML = "El número de dígitos pares es: " + cont36;
     }
 </script>
 </body>
