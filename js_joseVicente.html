@@ -176,33 +176,34 @@
 <p>Escriba un programa JavaScript para invertir el orden de los bits en un entero dado. <br>
     56 -> 111000 después de retroceso 7 -> 111 234 -> 11101010 después de retroceso 87 -> 1010111</p>
 <form name="form1" action="" method="post" onSubmit="">
-      Decimal:  <input type="text" name="dec"><br>
-      Binario:  <input type="text" name="bin"><br>
-      Invertido:<input type="text" name="inv37"><br>
-      <input type="button" value="Convertir a binario" onClick="bin.value=dec2bin(dec.value);">
-      <input type="button" value="Invertir orden" onClick="inv32=inversion(bin.value);"> 
+      Decimal:  <input type="text" id="dec32" name="dec32"><br>
+      Binario:  <input type="text" id="bin32" name="bin32"><br>
+      Invertido:<input type="text" id="inv32" name="inv32"><br>
+      <input type="button" value="Convertir a binario" onClick="bin32.value=dec2bin(dec32.value);">
+      <input type="button" value="Invertir orden" onClick="inv32.value=inversion(bin32.value);"> 
 </form>
- 
-<!-- <button onclick="myFunction()">Try it</button> -->
 <p id="demo"></p>
 <p>RESULTADO</p>
 <br><br>
 <p id="res32"></p>
 <script>
     // EJERCICIO 32 José Vicente Tejero
-    // str_in = document.getElementById("bin").value;
+    // str_in = document.getElementById("bin32").value;
     function dec2bin(i) { 
         return (i<1)?"":dec2bin((i-(i%2))/2)+i%2; 
     }
-    function inversion() {
-        var str_out;
-        text32 = bin.value;
+    function inversion(text32) {
+        var str_out="";
+        // text32 = document.getElementById("bin32").value;
         for (i = 0; i < text32.length; i++) {
-            str_out.substr(text32.length-1, 1) = text32.substr(i, 1);
+            // str_out.substr(text32.length-1, 1) = str_in.substr(i, 1);
+            str_out = text32.charAt(i) + str_out;
         }
-        inv32 = str_out;
+        num32 = parseInt(str_out,2);
+        str_out = num32.toString(2);    
+        return str_out;
     }       
-    document.getElementById("res32").innerHTML = inv32;   
+    // document.getElementById("res32").innerHTML = inversion();
 </script>
 </body>
 </html>
@@ -295,7 +296,7 @@
 </script>
 <!-- ------------------------------------------------------------------------------------------- -->
 <head>
-    <title> JAVASCRIPT EJERCICIO 36</title>
+    <title> JAVASCRIPT EJERCICIO 35</title>
 </head> 
 <br><br><br>
 
@@ -319,10 +320,10 @@
 <p id ="res35"></p>
 <script>
         function myfun35() {
-        
              var x35;
-             x35 = document.getElementById("num35").value;
-             document.getElementById("res35").innerHTML = "Se ha creado la variable: " + x35;
+             x35 = document.getElementById("text35").value;
+             eval("var "+x35+"=2");
+             document.getElementById("res35").innerHTML = "Se ha creado la variable: " + x35 + " y su valor es " + eval(x35);
         }
 </script>
 </body>
@@ -351,13 +352,13 @@
     function myfun36() {
         var x36 = 0;
         var cont36 = 0;
-        var text36 ="";
+        // var text36 ="";
         var a36;
         x36 = document.getElementById("num36").value;
-        text36 = x36.toString();
-        cont36 = 0;
+        var text36 = x36.toString();
+        // cont36 = 0;
         for (i = 0; i < text36.length; i++) {
-            a36 = parseInt(text36.subtr(i, 1));
+            a36 = parseInt(text36.substr(i, 1), 10);
             if (a36%2 == 0) {
                 cont36 = cont36 + 1;
             }
@@ -387,17 +388,19 @@
 <p id ="res37"></p>
 <script>
     var num37 = [15, 17, 33, 44, 6, 9, 88, 39];
-    var sal37;
+    var sal37 = [0, 0, 0, 0, 0, 0, 0, 0];
     var i;
     sal37[0] = num37[0];
     cadenaSalida = sal37[0] + " = " + num37[0] + "<br>";
     for (i = 1; i < num37.length; i++) {
         sal37[i] = sal37[i-1] + num37[i];
     }     
-    for (i = 1; i < num37.length; i++) {
-        
-    }   
-    document.getElementById("res37").innerHTML = sal37[0]+ " = " + num37[0] + "<br>";
- 
+   // for (i = 1; i < num37.length; i++) {
+   //    
+   
+   // }   
+   // document.getElementById("res37").innerHTML = sal37[0]+ " = " + num37[0] + "<br>";
+   document.getElementById("res37").innerHTML =  num37.toString()+ "<br>";
+   document.getElementById("res37").innerHTML += sal37.toString();
 </script>
 </body>
