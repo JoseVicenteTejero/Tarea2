@@ -278,17 +278,36 @@
     <p id="res16"></p>
     <script>
         // EJERCICIO 16 Sergio de Vega
-        function factorial (n) {
+        function ej16_factorial (n) {
         var total = 1; 
         for (i=1; i<=n; i++) {
             total = total * i; 
         }
         return total; 
         }
+        function ej16_cerosfinales(numero) {
+            var cadena = numero.toString(10);
+            var contadorceros = 0;
+            for (let index = cadena.length - 1; index >= 0; index--) {
+                if (cadena.charAt(index) == 0) {
+                    contadorceros ++
+                } else {
+                    return contadorceros;
+                }
+            }
+            return contadorceros;
+        }
+        var array1 = [10, 5, 8];
+        document.getElementById("enun16").innerHTML = "Números de ejemplo: " + array1.toString();
+        for (let x = 0; x < array1.length; x++) {
+            const element = array1[x];
+            var resultado = ej16_factorial(element);
 
-        
+            document.getElementById("res16").innerHTML += "Para el número " + element + " el factorial es: " + resultado + " y el nº de ceros es:" + ej16_cerosfinales(resultado) + "<br>";
+        }
+      
     </script>
-
+    
 
     <br>
     <hr>
@@ -305,7 +324,7 @@
         // EJERCICIO 17 Sergio de Vega
         function ej17_calcular(num) {
             var resultado = num;
-            for (let potencia = 2; Math.trunc(num/potencia) > 0; potencia = Math.pow(2,potencia)) {
+            for (let potencia = 2; Math.trunc(num/potencia) > 0; potencia = potencia * 2) {
                 resultado += Math.trunc(num / potencia);              
             }
             return resultado;
