@@ -216,15 +216,15 @@
     <script>
     // EJERCICIO 14 Sergio de Vega
         function ej14_listaPares(numtope) {
-                var num = 0;
-                var cadena = "";
-                while ( num <= numtope){
-                    if (num % 2 == 0) {
-                        cadena += num.toString() + ", ";
-                    }
-                     num++;
+            var num = 0;
+            var cadena = "";
+            while ( num <= numtope){
+                if (num % 2 == 0) {
+                    cadena += num.toString() + ", ";
                 }
-                return cadena.substring(0, cadena.length - 2);
+                    num++;
+            }
+            return cadena.substring(0, cadena.length - 2);
         }
         var array1 = [17 , 89 , -4 , 6];
         document.getElementById("enun14").innerHTML = "Números de ejemplo: " + array1.toString();
@@ -286,7 +286,7 @@
         return total; 
         }
 
-        alert(factorial(100));
+        
     </script>
 
 
@@ -302,7 +302,21 @@
     <p>RESULTADO</p>
     <p id="res17"></p>
     <script>
-    // EJERCICIO 17 Sergio de Vega
+        // EJERCICIO 17 Sergio de Vega
+        function ej17_calcular(num) {
+            var resultado = num;
+            for (let potencia = 2; Math.trunc(num/potencia) > 0; potencia = Math.pow(2,potencia)) {
+                resultado += Math.trunc(num / potencia);              
+            }
+            return resultado;
+        }
+        var array1 = [17 , 89 , 6, 10];
+        document.getElementById("enun17").innerHTML = "Números de ejemplo: " + array1.toString();
+        for (let x = 0; x < array1.length; x++) {
+            const element = array1[x];
+            document.getElementById("res17").innerHTML += "Resultado para el número " + element + " = " + ej17_calcular(element) + "<br>";
+        }
+        //array1.forEach((x) => document.getElementById("res17").innerHTML += "Resultado para el número " + x + " = " + ej17_calcular(array1[x]) + "<br>")
 
     </script>
 
